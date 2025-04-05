@@ -12,7 +12,7 @@ let NUM_RAYS;
 // Global variables
 let map;
 let player;
-let rays;
+let rays = [];
 
 function setup() {
     map = new Map(); // Not sure which one is better
@@ -27,7 +27,8 @@ function castRays() {
     rays = [];
 
     for (let i = 0; i < NUM_RAYS; i++) {
-        let ray = new Ray(rayAngle);
+        let ray = new Ray(rayAngle, map.tileSize);
+        ray.cast(columnId);
         rays.push(ray);
         rayAngle += FOV / NUM_RAYS;
         columnId++;
@@ -35,14 +36,13 @@ function castRays() {
 }
 
 function draw() {
-    castRays();
     map.render();
-    
     player.move();
     for (ray of rays) {
         ray.render();
     }
     player.render();
+    castRays();
 }
 
 // What is update() used for?

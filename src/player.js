@@ -20,17 +20,10 @@ class Player {
         let newXPosition = this.xPosition + Math.cos(this.rotationAngle) * moveStep;
         let newYPosition = this.yPosition + Math.sin(this.rotationAngle) * moveStep;
 
-        if (!this.wallCollision(newXPosition, newYPosition)) {
+        if (!map.wallCollision(newXPosition, newYPosition)) {
             this.xPosition = newXPosition;
             this.yPosition = newYPosition;
         }
-    }
-
-    wallCollision(x, y) {
-        // Check for map bounds
-        let tileX = Math.floor(x / map.tileSize);
-        let tileY = Math.floor(y / map.tileSize);
-        return map.grid[tileY][tileX] === 1;
     }
 
     move() {
@@ -60,11 +53,11 @@ class Player {
     render() {
         fill("red");
         circle(this.xPosition, this.yPosition, this.radius);
-        stroke("red");
-        line(this.xPosition,
-            this.yPosition,
-            this.xPosition + Math.cos(this.rotationAngle) * 30,
-            this.yPosition + Math.sin(this.rotationAngle) * 30
-        );
+        // stroke("red");
+        // line(this.xPosition,
+        //     this.yPosition,
+        //     this.xPosition + Math.cos(this.rotationAngle) * 30,
+        //     this.yPosition + Math.sin(this.rotationAngle) * 30
+        // );
     }
 }
