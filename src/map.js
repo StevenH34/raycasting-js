@@ -51,7 +51,6 @@ class Map {
         }
     }
     
-    // Check if the player is colliding with a wall
     wallCollision(x, y) {
         let tileX = Math.floor(x / map.tileSize);
         let tileY = Math.floor(y / map.tileSize);
