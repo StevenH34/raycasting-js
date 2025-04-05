@@ -1,12 +1,9 @@
 // Raycasting Engine
 // The main file
 
-// TODO: Find horizontal intersections
-// TODO: Find vertical intersections 
-
 // TODO: move these somewhere 
 let FOV = 60 * (Math.PI / 180); // Field of view in radians
-let COL_PIXEL_SIZE = 30; // Width of each column in pixels
+let COL_PIXEL_SIZE = 5; // Width of each column in pixels
 let NUM_RAYS;
 
 // Global variables
